@@ -1,0 +1,30 @@
+.bcontainer {
+    display: flexbox;
+    flex-direction: column;
+    height: 30vh;
+    width: 25vw;
+}
+
+.bimg {
+    justify-self: flex-start;
+    height: 50%;
+    width: 100%;
+}
+
+.bheader {
+    text-align: start;
+}
+
+.blist1{
+    line-height: 1.5rem;
+    float: left;
+    list-style-type: none;
+}
+
+.blist2{
+    line-height: 1.5rem;
+    float: right;
+    list-style-type: none;
+    text-align: end;
+}
+

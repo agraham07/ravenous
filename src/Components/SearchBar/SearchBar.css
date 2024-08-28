@@ -1,0 +1,69 @@
+.sortContainer {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+.sortOptions {
+    list-style: none;
+}
+
+.sortOptions:last-child {
+    margin-right: 0;
+}
+
+.option {
+    display: inline-block;
+    margin-right: 5rem;
+}
+
+.sortButton {
+    color:maroon;
+    background-color: wheat;
+    text-decoration: underline;
+    font-size: 1.25rem;
+    border: 0;
+}
+
+.sortButton:hover {
+    color:purple;
+    cursor: pointer;
+}
+
+.sortButton:focus {
+    color:black;
+}
+
+.searchContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+input {
+    margin-right: .5rem;
+    background-color: maroon;
+    color: white;
+    height: 2rem;
+    font-size: 1.25rem;
+}
+
+input:focus {
+    outline: none;
+}
+
+.submit {
+    font-size: 1.5rem;
+    height: 2rem;
+    background-color: goldenrod;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    color:white
+}
+
+.submit:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+

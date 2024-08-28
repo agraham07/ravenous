@@ -1,0 +1,7 @@
+.businessList {
+    margin-left: 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    row-gap: 3rem;
+  }

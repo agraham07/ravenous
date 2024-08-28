@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import BusinessList from './Components/BusinessList/BusinessList';
+import SearchBar from './Components/SearchBar/SearchBar';
+import Image from '../src/Components/Business/mockBusinessImg.jpg'
 
 function App() {
+
+  const businessArray = [
+    {imgFile: Image, name: "Piper's Pizza", address: "42 Wallaby Way", city: "Sydney", zipcode: "37313", category: "Italian", rating: "4.5", reviewCount: "1472 Reviews"},
+    {imgFile: Image, name: "Piper's Pizza", address: "42 Wallaby Way", city: "Sydney", zipcode: "37313", category: "Italian", rating: "4.5", reviewCount: "1472 Reviews"},
+    {imgFile: Image, name: "Piper's Pizza", address: "42 Wallaby Way", city: "Sydney", zipcode: "37313", category: "Italian", rating: "4.5", reviewCount: "1472 Reviews"},
+    {imgFile: Image, name: "Piper's Pizza", address: "42 Wallaby Way", city: "Sydney", zipcode: "37313", category: "Italian", rating: "4.5", reviewCount: "1472 Reviews"},
+    {imgFile: Image, name: "Piper's Pizza", address: "42 Wallaby Way", city: "Sydney", zipcode: "37313", category: "Italian", rating: "4.5", reviewCount: "1472 Reviews"},
+    {imgFile: Image, name: "Piper's Pizza", address: "42 Wallaby Way", city: "Sydney", zipcode: "37313", category: "Italian", rating: "4.5", reviewCount: "1472 Reviews"}
+]
+
   return (
-    <div className="App">
+    <body>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 className='header-text'>What Are You Ravenous For?</h1>
       </header>
-    </div>
+      <div className='search'>
+        <SearchBar />
+      </div>
+      <BusinessList businessArray={businessArray} />
+    </body>
   );
 }
 
