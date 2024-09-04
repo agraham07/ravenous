@@ -30,10 +30,6 @@
     cursor: pointer;
 }
 
-.sortButton:focus {
-    color:black;
-}
-
 .searchContainer {
     display: flex;
     justify-content: center;

@@ -1,42 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import './SearchBar.css';
+import React, { useState } from 'react';
+import { dataFetch } from 'C:/Users/14234/ravenous/src/Utils/Utils.js';
+import './SearchBar.css'
 
 
+function SearchBar({sendDataToApp}) {
 
-function SearchBar() {
+    const [ input, setInput] = useState('');
 
-    const [ sort, setSort ] = useState({});
+    const [ location, setLocation] = useState('');
 
-    const paramURL = 'https://api.yelp.com/v3/businesses/search?sort_by='
+    const [ sort, setSort ] = useState('');
 
-    const options = {method: 'GET', headers: {accept: 'application/json'}};
+    const handleInput = (e) => {
+        setInput(e.target.value);
+    };
 
-    const sortOptions = {
-        best_Match: 'best_match&limit=20',
-        rating: 'rating&limit=20',
-        review_Mount: 'review_count&limit=20'
+    const handleLocation = (e) => {
+        setLocation(e.target.value);
     }
 
     const handleSort = (e) => {
-        if(e.target.value == 'bestMatch'){
-            fetch(paramURL + sortOptions.best_Match, options)
-            .then((res) => res.json())
-            .then((res) => {
-                setSort({res});
-            })
-        } else if(e.target.value == 'highestRated'){
-            fetch(paramURL + sortOptions.rating, options)
-            .then((res) => res.json())
-            .then((res) => {
-                setSort({res});
-            })
-        } else if(e.target.value == 'mostReviewed'){
-            fetch(paramURL + sortOptions.review_Mount, options)
-            .then((res) => res.json())
-            .then((res) => {
-                setSort({res})
-            })
-        }
+        setSort(e.target.value)
+        e.target.style.color = "black"
+    } 
+    
+    
+
+    async function handleSubmit(){
+      const data = await dataFetch(location, input, sort)
+      console.log(data)
+      sendDataToApp(data)
     }
 
 
@@ -44,15 +37,15 @@ function SearchBar() {
         <div>
             <div className='sortContainer'>
                 <ul className='sortOptions'>
-                    <li className='option'><button className='sortButton' value='bestMatch' onClick={handleSort}>Best Match</button></li>
-                    <li className='option'><button className='sortButton' value='highestRated' onClick={handleSort}>Highest Rated</button></li>
-                    <li className='option'><button className='sortButton' value='mostReviewed' onClick={handleSort}>Most Reviewed</button></li>
+                    <li className='option'><button className='sortButton' value="best_match" onClick={handleSort}>Best Match</button></li>
+                    <li className='option'><button className='sortButton' value="rating" onClick={handleSort}>Highest Rated</button></li>
+                    <li className='option'><button className='sortButton'value="review_count" onClick={handleSort}>Most Reviewed</button></li>
                 </ul>
             </div>
             <div className='searchContainer'>
-                <form action='#' method='get'>
-                    <input type="text" placeholder='Search Business...'/>
-                    <input type="text" placeholder='Where?' />
+                <form onSubmit={handleSubmit}>
+                    <input type="text" onChange={handleInput} placeholder='Search Business...'/>
+                    <input type="text" onChange={handleLocation} placeholder='Where?' />
                     <button type='submit' className='submit'>Let's Eat!</button>
                 </form>
             </div>

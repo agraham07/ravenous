@@ -1,14 +1,13 @@
 import React from 'react';
 import Business from '../Business/Business';
 import './BusinessList.css';
-import Image from '../Business/mockBusinessImg.jpg'
 
 
 function BusinessList({ businessArray }){
     return (
         <div className='businessList'>
             {businessArray.map(business => {
-                return <Business imgFile={business.imgFile} name={business.name} address={business.address} city={business.city} zipcode={business.zipcode} category={business.category} rating={business.rating} reviewCount={business.reviewCount} />
+                return <Business key={businessArray.indexOf(business) + 1} imgFile={business.image_url} name={business.name} address={business.location.address1} city={business.location.city} zipcode={business.location.zip_code} category={business.categories.title} rating={business.rating} reviewCount={business.review_count} />
             })}
         </div>
     );
